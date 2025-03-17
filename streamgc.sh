@@ -45,7 +45,7 @@ calculate_gc() {
     local gc_count=$(echo "$seq" | tr -cd 'GCgc' | wc -c)
     local total_count=${#seq}
     if [ $total_count -eq 0 ]; then
-        echo "0.0000"
+        echo "0.00"
     else
         echo "scale=2; $gc_count / $total_count" | bc
     fi
