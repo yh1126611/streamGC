@@ -47,7 +47,7 @@ calculate_gc() {
     if [ $total_count -eq 0 ]; then
         echo "0.0000"
     else
-        echo "scale=4; $gc_count / $total_count" | bc
+        echo "scale=2; $gc_count / $total_count" | bc
     fi
 }
 
