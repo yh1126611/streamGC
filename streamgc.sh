@@ -2,13 +2,22 @@
 
 # Print help message if --help is called
 if [[ "$1" == "--help" ]]; then
-    echo "Program: streamGC"
-    echo "Version: 1.0.0"
-    echo "Code:    https://github.com/yh1126611/streamGC"
-    echo "Usage:   streamgc <genome.fasta> <coordinates.txt> <output.tsv>"
     echo ""
-    echo "Calculate the GC content (0-1) for every 100 bp window inside 10,000 bp interval from set of coordinates on genome."
-    echo "<coordinates.txt>: a three-column tab-delimited file. Column 1: chromosome, column 2: genomic coordinate, column 3: strand orientation (+|-)"
+    echo "Program:                streamGC"
+    echo "Version:                1.0.0"
+    echo "Code:                   https://github.com/yh1126611/streamGC"
+    echo ""
+    echo "Description:"
+    echo "Calculate the GC content (0-1) for every 100 bp window inside 10,000 bp"
+    echo "interval from set of coordinates on genome."
+    echo ""
+    echo "Usage:"
+    echo "streamgc <genome.fasta> <coordinates.txt> <output.tsv>"
+    echo ""
+    echo "<coordinates.txt>       A three-column tab-delimited file consisting"
+    echo "                        of column 1: chromosome; column 2: genomic"
+    echo "                        coordinate, column 3: strand orientation (+|-)"
+    echo ""
     exit 0
 fi
 
@@ -52,7 +61,7 @@ calculate_gc() {
 }
 
 # Create header for output file
-echo -e "Chromosome_Coordinate\tDistance\tGC_Ratio\tStrand" > $output_file
+echo -e "Chromosome_Coordinate\tDistance\tGC_Content\tStrand" > $output_file
 
 # Process each entry in the coordinate file
 while IFS=$'\t' read -r chrom coord strand; do
